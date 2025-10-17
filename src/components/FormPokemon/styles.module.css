@@ -1,0 +1,100 @@
+.formContainer {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e3e9f7;
+}
+
+.formTitle {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.pokemonForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    padding: 1rem 1.5rem;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.input::placeholder {
+    color: #a0aec0;
+}
+
+.formTextArea {
+    padding: 1rem 1.5rem;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: white;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-height: 80px;
+    font-family: inherit;
+}
+
+.submit {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+.submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.submit:active {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    .formContainer {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .formTitle {
+        font-size: 1.5rem;
+    }
+    
+    .input {
+        padding: 0.8rem 1rem;
+    }
+}
