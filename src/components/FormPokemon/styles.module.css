@@ -98,3 +98,34 @@
         padding: 0.8rem 1rem;
     }
 }
+
+.pokemonListContainer {
+    margin-top: 40px;
+}
+
+.pokemonList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 2fr));
+    gap: 20px;
+}
+
+.pokemonCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.pokemonName {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #7296ad;
+    padding-bottom: 8px;
+}
+
+.pokemonDescription {
+    margin-top: 12px;
+    color: #666;
+    font-size: 14px;
+    font-style: italic;
+}

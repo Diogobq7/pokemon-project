@@ -25,8 +25,32 @@ export default function FormPokemon() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        // Mensagens de erro se algum campo obrigatório ficar vazio
+        const camposVazios = [];
+        
+        if (!pokemon.nome.trim()) {
+            camposVazios.push("Nome");
+        }
+        
+        if (!pokemon.tipo.trim()) {
+            camposVazios.push("Tipo");
+        }
+        
+        if (!pokemon.poder.trim()) {
+            camposVazios.push("Poder");
+        }
+        
+        if (camposVazios.length > 0) {
+            const mensagem = camposVazios.length === 1
+                ? `O seguinte campo obrigatório não foi preenchido:\n- ${camposVazios[0]}`
+                : `Os seguintes campos obrigatórios não foram preenchidos:\n- ${camposVazios.join('\n- ')}`;
+            
+            alert(mensagem);
+            return;
+        }
+        
         setPokemonList([...pokemonList, pokemon]);
-
         alert("Pokemon cadastrado com sucesso!");
         handleInputReset();
     }
@@ -47,7 +71,7 @@ export default function FormPokemon() {
                 <div className={styles.inputGroup}>
                     <input 
                         type="text"
-                        placeholder="Nome do Pokémon"
+                        placeholder="Nome do Pokémon *"
                         value={pokemon.nome}
                         onChange={(e) => handleInputChange('nome', e.target.value)}
                         className={styles.input}
@@ -56,7 +80,7 @@ export default function FormPokemon() {
                 <div className={styles.inputGroup}>
                     <input 
                         type="text" 
-                        placeholder="Tipo do Pokémon"
+                        placeholder="Tipo do Pokémon *"
                         value={pokemon.tipo} 
                         onChange={(e) => handleInputChange('tipo', e.target.value)}
                         className={styles.input}
@@ -74,7 +98,7 @@ export default function FormPokemon() {
                 <div className={styles.inputGroup}>
                     <input 
                         type="text" 
-                        placeholder="Poder do Pokémon"
+                        placeholder="Poder do Pokémon *"
                         value={pokemon.poder}
                         onChange={(e) => handleInputChange('poder', e.target.value)}
                         className={styles.input}
@@ -84,6 +108,23 @@ export default function FormPokemon() {
                     Cadastrar Pokémon
                 </button>
             </form>
+            
+            <div className={styles.pokemonListContainer}>
+                <h2>Lista dos Pokémons cadastrados ({pokemonList.length})</h2>
+                <div className={styles.pokemonList}>
+                    {pokemonList.map((poke, index) => (
+                        <div key={index} className={styles.pokemonCard}>
+                            <h3 className={styles.pokemonName}>{poke.nome}</h3>
+                            <p><strong>Tipo:</strong> {poke.tipo}</p>
+                            <p><strong>Poder:</strong> {poke.poder}</p>
+                            {poke.descricao && (
+                                <p className={styles.pokemonDescription}><strong>Descrição:</strong> {poke.descricao}</p>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+            
         </div>
     )
 }
